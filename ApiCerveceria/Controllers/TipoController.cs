@@ -2,46 +2,47 @@
 using ApiCerveceria.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 
+
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ApiCerveceria.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductoController : ControllerBase
+    public class TipoController : ControllerBase
     {
-        private readonly IProductoServicio _productoServicio;
-        public ProductoController(IProductoServicio productoServicio)
+        private readonly ITipoServicio _tipoServicio;
+        public TipoController(ITipoServicio tipoServicio)
         {
-            this._productoServicio = productoServicio;
+            this._tipoServicio = tipoServicio;
         }
-        // GET: api/<ProductoController>
+        // GET: api/<TipoController>
         [HttpGet]
-        public async Task<IEnumerable<Producto>> Get()
+        public async Task <IEnumerable<Tipo>> Get()
         {
-            return await this._productoServicio.GetProductos();
+            return await this._tipoServicio.GetTipos();
         }
 
-        // GET api/<ProductoController>/5
+        // GET api/<TipoController>/5
         [HttpGet("{id}")]
-        public async Task<Producto> Get(int id)
+        public async Task <Tipo> Get(int id)
         {
-            return await this._productoServicio.GetProductosById(id);
+            return await this._tipoServicio.GetTiposById(id);
         }
 
-        // POST api/<ProductoController>
+        // POST api/<TipoController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<ProductoController>/5
+        // PUT api/<TipoController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<ProductoController>/5
+        // DELETE api/<TipoController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

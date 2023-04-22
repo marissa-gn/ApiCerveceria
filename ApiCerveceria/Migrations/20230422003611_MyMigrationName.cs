@@ -7,7 +7,7 @@
 namespace ApiCerveceria.Migrations
 {
     /// <inheritdoc />
-    public partial class Cerveceria : Migration
+    public partial class MyMigrationName : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,6 +23,19 @@ namespace ApiCerveceria.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Marcas", x => x.MarcaId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Peluchines",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Peluchines", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -148,6 +161,15 @@ namespace ApiCerveceria.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Peluchines",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Peluchin" },
+                    { 2, "Peluchina" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Tipos",
                 columns: new[] { "TipoId", "Nombre" },
                 values: new object[,]
@@ -205,6 +227,9 @@ namespace ApiCerveceria.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Peluchines");
+
             migrationBuilder.DropTable(
                 name: "Ventas");
 

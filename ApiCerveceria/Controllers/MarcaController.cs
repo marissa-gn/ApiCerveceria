@@ -8,40 +8,41 @@ namespace ApiCerveceria.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductoController : ControllerBase
+    public class MarcaController : ControllerBase
     {
-        private readonly IProductoServicio _productoServicio;
-        public ProductoController(IProductoServicio productoServicio)
+        private readonly IMarcaServicio _marcaServicio;
+        public MarcaController(IMarcaServicio marcaServicio)
         {
-            this._productoServicio = productoServicio;
+            this._marcaServicio = marcaServicio;
         }
-        // GET: api/<ProductoController>
+
+        // GET: api/<MarcaController>
         [HttpGet]
-        public async Task<IEnumerable<Producto>> Get()
+        public async Task<IEnumerable<Marca>> Get()
         {
-            return await this._productoServicio.GetProductos();
+            return await this._marcaServicio.GetMarcas();
         }
 
-        // GET api/<ProductoController>/5
+        // GET api/<MarcaController>/5
         [HttpGet("{id}")]
-        public async Task<Producto> Get(int id)
+        public async Task<Marca>Get(int id)
         {
-            return await this._productoServicio.GetProductosById(id);
+            return await this._marcaServicio.GetMarcasById(id);
         }
 
-        // POST api/<ProductoController>
+        // POST api/<MarcaController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<ProductoController>/5
+        // PUT api/<MarcaController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<ProductoController>/5
+        // DELETE api/<MarcaController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

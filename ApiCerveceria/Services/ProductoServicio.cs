@@ -4,8 +4,8 @@ using ApiCerveceria.Services.Interface;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiCerveceria.Services
-{ 
-    
+{
+
     public partial class ProductoServicio : IProductoServicio
     {
         private readonly CerveceriaContext _cerveceriaContext;
@@ -16,7 +16,7 @@ namespace ApiCerveceria.Services
         }
         public async Task<IEnumerable<Producto>> GetProductos()
         {
-            return await this._cerveceriaContext.Productos.ToListAsync();
+            return await this._cerveceriaContext.Productos.ToListAsync(); 
         }
 
         public async Task<Producto> GetProductosById(int id)

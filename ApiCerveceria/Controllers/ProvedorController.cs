@@ -8,40 +8,40 @@ namespace ApiCerveceria.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductoController : ControllerBase
+    public class ProvedorController : ControllerBase
     {
-        private readonly IProductoServicio _productoServicio;
-        public ProductoController(IProductoServicio productoServicio)
+        private readonly IProvedorServicio _provedorServicio;
+        public ProvedorController(IProvedorServicio provedorServicio)
         {
-            this._productoServicio = productoServicio;
+            this._provedorServicio = provedorServicio;
         }
-        // GET: api/<ProductoController>
+        // GET: api/<ProvedorController>
         [HttpGet]
-        public async Task<IEnumerable<Producto>> Get()
+        public async Task<IEnumerable<Provedor>> Get()
         {
-            return await this._productoServicio.GetProductos();
+            return await this._provedorServicio.GetProvedores();
         }
 
-        // GET api/<ProductoController>/5
+        // GET api/<ProvedorController>/5
         [HttpGet("{id}")]
-        public async Task<Producto> Get(int id)
+        public async Task <Provedor> Get(int id)
         {
-            return await this._productoServicio.GetProductosById(id);
+            return await this._provedorServicio.GetProvedoresById(id);
         }
 
-        // POST api/<ProductoController>
+        // POST api/<ProvedorController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<ProductoController>/5
+        // PUT api/<ProvedorController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<ProductoController>/5
+        // DELETE api/<ProvedorController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

@@ -13,7 +13,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddMemoryCache();
+builder.Services.AddTransient<IMarcaServicio, MarcaServicio>();
+builder.Services.AddTransient<IVentaServicio, VentaServicio>();
+builder.Services.AddTransient<IVendedorServicio, VendedorServicio>();
+builder.Services.AddTransient<ITipoServicio, TipoServicio>();
 builder.Services.AddTransient<IProductoServicio, ProductoServicio>();
+builder.Services.AddTransient<IProvedorServicio, ProvedorServicio>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<CerveceriaContext>(x => x.UseSqlServer(@"Server=DESKTOP-3SC43RA;Database=Cerveceria;user=marissa;pwd=3312marissa;Encrypt=False;Trusted_Connection=True;"));
 var app = builder.Build();

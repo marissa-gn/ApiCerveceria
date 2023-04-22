@@ -2,7 +2,7 @@
 
 namespace ApiCerveceria.Services.Interface
 {
-    public partial interface  IProductoServicio
+    public interface IProductoServicio
     {
         Task<Producto> GetProductosById(int id);
         Task<IEnumerable<Producto>> GetProductos();

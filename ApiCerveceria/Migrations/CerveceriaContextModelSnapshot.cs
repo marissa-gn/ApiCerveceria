@@ -76,6 +76,35 @@ namespace ApiCerveceria.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ApiCerveceria.Models.Peluchin", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Peluchines");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Peluchin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Peluchina"
+                        });
+                });
+
             modelBuilder.Entity("ApiCerveceria.Models.Producto", b =>
                 {
                     b.Property<int>("Id")

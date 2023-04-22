@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiCerveceria.Migrations
 {
     [DbContext(typeof(CerveceriaContext))]
-    [Migration("20221115235847_Cerveceria")]
-    partial class Cerveceria
+    [Migration("20230422003611_MyMigrationName")]
+    partial class MyMigrationName
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -76,6 +76,35 @@ namespace ApiCerveceria.Migrations
                         {
                             MarcaId = 7,
                             Nombre = "Modelo"
+                        });
+                });
+
+            modelBuilder.Entity("ApiCerveceria.Models.Peluchin", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Peluchines");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Peluchin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Peluchina"
                         });
                 });
 
